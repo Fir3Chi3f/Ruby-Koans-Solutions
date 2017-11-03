@@ -14,7 +14,15 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+	# sort asending order <
+	x, y, z = [a,b,c].sort
+
+	# Raise an exception if the supposed shorter or equal lengths are smaller than the longest side
+	#  Note: This is not a triangle if this is not the case
+	raise TriangleError if x + y <= z || x <= 0
+
+	# 
+	[:equilateral, :isosceles, :scalene].fetch([x,y,z].uniq.length - 1)
 end
 
 # Error class used in part 2.  No need to change this code.
